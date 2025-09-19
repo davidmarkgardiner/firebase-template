@@ -1,0 +1,66 @@
+---
+import Layout from './Layout.astro'
+import { AdminHeader } from '../components/admin/AdminHeader'
+import { AdminSidebar } from '../components/admin/AdminSidebar'
+
+export interface Props {
+  title?: string
+  description?: string
+  breadcrumbs?: {
+    label: string
+    href?: string
+  }[]
+}
+
+const { title = 'Admin Dashboard', description = 'Honduras Coffee Admin Panel', breadcrumbs = [] } = Astro.props
+---
+
+<Layout title={title} description={description}>
+  <div class="min-h-screen bg-gray-50">
+    <!-- Sidebar for desktop -->
+    <AdminSidebar className="fixed inset-y-0 left-0 z-50 w-80" client:load />
+
+    <!-- Main content area -->
+    <div class="md:pl-80">
+      <!-- Header -->
+      <AdminHeader breadcrumbs={breadcrumbs} title={title} client:load />
+
+      <!-- Page content -->
+      <main class="flex-1 p-6">
+        <slot />
+      </main>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  /* Ensure proper layering for admin interface */
+  .admin-layout {
+    @apply min-h-screen bg-gray-50;
+  }
+
+  /* Coffee color variables for consistency */
+  :root {
+    --color-coffee-25: hsl(30, 25%, 98%);
+    --color-coffee-50: hsl(30, 20%, 95%);
+    --color-coffee-100: hsl(30, 18%, 88%);
+    --color-coffee-600: hsl(25, 35%, 35%);
+    --color-coffee-700: hsl(25, 40%, 30%);
+    --color-coffee-900: hsl(25, 45%, 20%);
+  }
+
+  /* Claymorphism enhancements */
+  .admin-card {
+    @apply bg-white/80 backdrop-blur-sm border border-white/20 shadow-lg;
+    border-radius: 16px;
+  }
+
+  .admin-button {
+    @apply transition-all duration-200 ease-out;
+    border-radius: 12px;
+  }
+
+  .admin-button:hover {
+    @apply transform translate-y-[-1px] shadow-md;
+  }
+</style>

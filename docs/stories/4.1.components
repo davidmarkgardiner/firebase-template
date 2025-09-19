@@ -1,0 +1,57 @@
+Core Authentication Component Mapping:
+
+  Primary Login Components:
+
+  - Form + Card + Input + Label + Button - LoginForm
+  structure
+  - Dialog + Dialog.Trigger + Dialog.Content - LoginModal
+  overlay
+  - Alert - Error messages and validation feedback
+  - Separator + Checkbox - Remember me and social login
+  dividers
+
+  Registration & Verification:
+
+  - Form + Card + Progress - Multi-step registration
+  - Input + Textarea + Button - Registration fields and
+  actions
+  - Alert + Badge + Skeleton - Email verification states
+
+  Password Management:
+
+  - Form + Card + Input - Password reset and change forms
+  - Progress - Password strength indicators
+  - Button + Alert - Reset actions and confirmations
+
+  Account Dashboard:
+
+  - Tabs + Card + Switch + Select - Account settings
+  structure
+  - Avatar + Table + Pagination - Profile and order history
+  - Badge - Status indicators throughout
+
+  Mobile Authentication:
+
+  - Sheet + Sheet.Trigger + Sheet.Content - Mobile auth
+  drawer
+  - Navigation-Menu + Dropdown-Menu - Mobile authenticated
+  navigation
+  - Drawer - Alternative mobile auth pattern
+
+  Security Features:
+
+  - Form + Input + Badge - Two-factor authentication
+  - Table + Button - Session management
+  - Switch + Alert - Security settings and notifications
+
+  Loading & Error States:
+
+  - Skeleton + Progress + Spinner - Loading indicators
+  - Alert - Error handling with variants
+  - Toast/Sonner - Session and security notifications
+
+  The authentication system is now fully mapped with
+  shadcn/ui components, providing a complete foundation for
+  secure user authentication with the Honduras Coffee
+  claymorphism theme, Supabase integration, and
+  mobile-optimized experience.

@@ -1,0 +1,19 @@
+---
+import MainLayout from '@/components/layout/MainLayout.astro'
+import CategoryPage from '@/components/shop/CategoryPage'
+
+export const prerender = true
+---
+
+<MainLayout
+  title="Estate Coffee Collection - Honduras Coffee Co."
+  description="Premium estate coffee beans from single-origin Honduran farms. Rich, complex flavors with distinct terroir characteristics."
+>
+  <CategoryPage
+    client:load
+    category="estate"
+    categoryTitle="Estate Collection"
+    categoryDescription="Our Estate Collection features single-origin coffees from specific farms and regions, each with unique terroir characteristics that create distinctive flavor profiles."
+    categoryBadge="Single Origin"
+  />
+</MainLayout>

@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { OrderConfirmation } from '../components/checkout/OrderConfirmation';
+
+const title = "Order Confirmed - Honduras Coffee";
+const description = "Your Honduras coffee order has been confirmed";
+---
+
+<Layout title={title} description={description}>
+  <main>
+    <OrderConfirmation client:load />
+  </main>
+</Layout>
+
+<style>
+  main {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f8f6f3 0%, #f3f1ee 100%);
+  }
+</style>

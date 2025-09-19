@@ -1,0 +1,67 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import RegisterForm from '../../components/auth/RegisterForm'
+import { getSupabaseClient } from '../../lib/supabase/client'
+
+export async function getStaticProps() {
+  return {
+    props: {
+      title: 'Create Account - Honduras Coffee'
+    }
+  }
+}
+
+const handleRegister = async (data: any) => {
+  'use server'
+
+  const supabase = getSupabaseClient()
+  const { data: authData, error } = await supabase.auth.signUp({
+    email: data.email,
+    password: data.password,
+    options: {
+      data: {
+        first_name: data.firstName,
+        last_name: data.lastName,
+        phone: data.phone
+      }
+    }
+  })
+
+  if (error) {
+    throw new Error(error.message)
+  }
+
+  // Create user profile in the database
+  if (authData.user) {
+    const { error: profileError } = await supabase
+      .from('user_profiles')
+      .insert([
+        {
+          id: authData.user.id,
+          first_name: data.firstName,
+          last_name: data.lastName,
+          email: data.email,
+          phone: data.phone,
+          address: data.address
+        }
+      ])
+
+    if (profileError) {
+      console.error('Error creating user profile:', profileError)
+    }
+  }
+
+  return authData
+}
+---
+
+<Layout title={Astro.props.title}>
+  <main class="min-h-screen flex items-center justify-center bg-gradient-to-br from-amber-50 to-orange-50 dark:from-gray-900 dark:to-gray-800 px-4 py-8">
+    <div class="w-full max-w-2xl">
+      <RegisterForm
+        onSubmit={handleRegister}
+        client:load
+      />
+    </div>
+  </main>
+</Layout>

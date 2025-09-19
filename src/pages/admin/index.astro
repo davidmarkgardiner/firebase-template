@@ -1,0 +1,247 @@
+---
+import AdminLayout from '../../layouts/AdminLayout.astro'
+import { MetricsGrid } from '../../components/admin/MetricsCard'
+import { Card, CardContent, CardHeader, CardTitle } from '../../components/ui/card'
+import { Button } from '../../components/ui/button'
+import { Badge } from '../../components/ui/badge'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '../../components/ui/tabs'
+import { Progress } from '../../components/ui/progress'
+import {
+  Plus,
+  ShoppingCart,
+  Mail,
+  FileText,
+  TrendingUp,
+  Coffee,
+  Users,
+  Package
+} from 'lucide-react'
+
+// Mock data for demonstration
+const recentOrders = [
+  { id: 'HC-2024-001', customer: 'María González', amount: '€45.90', status: 'pending', time: '2 hours ago' },
+  { id: 'HC-2024-002', customer: 'David Miller', amount: '€32.50', status: 'shipped', time: '4 hours ago' },
+  { id: 'HC-2024-003', customer: 'Sarah Johnson', amount: '€67.80', status: 'delivered', time: '6 hours ago' },
+  { id: 'HC-2024-004', customer: 'Carlos Ruiz', amount: '€28.40', status: 'processing', time: '8 hours ago' },
+]
+
+const topProducts = [
+  { name: 'Estate Reserve Blend', sales: 45, revenue: '€1,350', trend: 15 },
+  { name: 'Mountain Select Dark', sales: 32, revenue: '€960', trend: 8 },
+  { name: 'Seasonal Harvest Light', sales: 28, revenue: '€840', trend: -3 },
+  { name: 'Premium Espresso', sales: 24, revenue: '€720', trend: 12 },
+]
+
+const activityFeed = [
+  { type: 'order', message: 'New order #HC-2024-001 received', time: '5 min ago' },
+  { type: 'product', message: 'Estate Reserve Blend stock updated', time: '15 min ago' },
+  { type: 'customer', message: 'New customer registration: María González', time: '1 hour ago' },
+  { type: 'system', message: 'Inventory alert: Mountain Select running low', time: '2 hours ago' },
+]
+---
+
+<AdminLayout title="Admin Dashboard | Honduras Coffee">
+  <div class="space-y-6">
+
+    <!-- Welcome Header -->
+    <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+      <div>
+        <h1 class="text-2xl font-bold text-coffee-900">Welcome back, Admin</h1>
+        <p class="text-coffee-600">Here's what's happening with your Honduras Coffee business today.</p>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="flex flex-wrap gap-2">
+        <Button class="admin-button">
+          <Plus class="mr-2 h-4 w-4" />
+          Add Product
+        </Button>
+        <Button variant="outline" class="admin-button">
+          <ShoppingCart class="mr-2 h-4 w-4" />
+          View Orders
+        </Button>
+        <Button variant="outline" class="admin-button">
+          <Mail class="mr-2 h-4 w-4" />
+          Send Newsletter
+        </Button>
+        <Button variant="outline" class="admin-button">
+          <FileText class="mr-2 h-4 w-4" />
+          Generate Report
+        </Button>
+      </div>
+    </div>
+
+    <!-- Metrics Grid -->
+    <MetricsGrid client:load />
+
+    <!-- Main Content Grid -->
+    <div class="grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
+
+      <!-- Recent Orders -->
+      <Card class="admin-card xl:col-span-2">
+        <CardHeader>
+          <div class="flex items-center justify-between">
+            <CardTitle class="text-coffee-900">Recent Orders</CardTitle>
+            <Button variant="ghost" size="sm">View All</Button>
+          </div>
+        </CardHeader>
+        <CardContent>
+          <div class="space-y-4">
+            {recentOrders.map((order) => (
+              <div key={order.id} class="flex items-center justify-between p-3 rounded-lg bg-coffee-25 border border-coffee-100">
+                <div class="space-y-1">
+                  <p class="font-medium text-coffee-900">{order.id}</p>
+                  <p class="text-sm text-coffee-600">{order.customer}</p>
+                  <p class="text-xs text-coffee-500">{order.time}</p>
+                </div>
+                <div class="text-right space-y-1">
+                  <p class="font-medium text-coffee-900">{order.amount}</p>
+                  <Badge
+                    variant={order.status === 'delivered' ? 'default' :
+                            order.status === 'shipped' ? 'secondary' :
+                            order.status === 'pending' ? 'destructive' : 'outline'}
+                    class="text-xs"
+                  >
+                    {order.status}
+                  </Badge>
+                </div>
+              </div>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
+
+      <!-- Activity Feed -->
+      <Card class="admin-card">
+        <CardHeader>
+          <CardTitle class="text-coffee-900">Recent Activity</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div class="space-y-3">
+            {activityFeed.map((activity, index) => (
+              <div key={index} class="flex items-start gap-3 p-2 rounded-md hover:bg-coffee-25 transition-colors">
+                <div class={`mt-0.5 h-2 w-2 rounded-full ${
+                  activity.type === 'order' ? 'bg-blue-500' :
+                  activity.type === 'product' ? 'bg-green-500' :
+                  activity.type === 'customer' ? 'bg-purple-500' :
+                  'bg-orange-500'
+                }`}></div>
+                <div class="space-y-1 flex-1">
+                  <p class="text-sm text-coffee-900">{activity.message}</p>
+                  <p class="text-xs text-coffee-500">{activity.time}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+
+    <!-- Performance Analytics -->
+    <div class="grid gap-6 lg:grid-cols-2">
+
+      <!-- Top Products -->
+      <Card class="admin-card">
+        <CardHeader>
+          <CardTitle class="text-coffee-900">Top Products</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div class="space-y-4">
+            {topProducts.map((product, index) => (
+              <div key={index} class="space-y-2">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p class="font-medium text-coffee-900">{product.name}</p>
+                    <p class="text-sm text-coffee-600">{product.sales} sales • {product.revenue}</p>
+                  </div>
+                  <div class="flex items-center gap-1">
+                    <TrendingUp class={`h-3 w-3 ${product.trend > 0 ? 'text-green-600' : 'text-red-600'}`} />
+                    <span class={`text-xs font-medium ${product.trend > 0 ? 'text-green-600' : 'text-red-600'}`}>
+                      {product.trend > 0 ? '+' : ''}{product.trend}%
+                    </span>
+                  </div>
+                </div>
+                <Progress value={(product.sales / 50) * 100} class="h-2" />
+              </div>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
+
+      <!-- System Status -->
+      <Card class="admin-card">
+        <CardHeader>
+          <CardTitle class="text-coffee-900">System Status</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div class="space-y-4">
+            <div class="flex items-center justify-between p-3 rounded-lg bg-green-50 border border-green-200">
+              <div class="flex items-center gap-3">
+                <Coffee class="h-5 w-5 text-green-600" />
+                <div>
+                  <p class="font-medium text-green-900">Inventory System</p>
+                  <p class="text-sm text-green-600">All systems operational</p>
+                </div>
+              </div>
+              <Badge variant="default" class="bg-green-100 text-green-700">Online</Badge>
+            </div>
+
+            <div class="flex items-center justify-between p-3 rounded-lg bg-orange-50 border border-orange-200">
+              <div class="flex items-center gap-3">
+                <Package class="h-5 w-5 text-orange-600" />
+                <div>
+                  <p class="font-medium text-orange-900">Stock Levels</p>
+                  <p class="text-sm text-orange-600">3 items need attention</p>
+                </div>
+              </div>
+              <Badge variant="outline" class="border-orange-300 text-orange-700">Warning</Badge>
+            </div>
+
+            <div class="flex items-center justify-between p-3 rounded-lg bg-blue-50 border border-blue-200">
+              <div class="flex items-center gap-3">
+                <Users class="h-5 w-5 text-blue-600" />
+                <div>
+                  <p class="font-medium text-blue-900">Customer Service</p>
+                  <p class="text-sm text-blue-600">Response time: 2.3 hours</p>
+                </div>
+              </div>
+              <Badge variant="secondary" class="bg-blue-100 text-blue-700">Good</Badge>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  </div>
+</AdminLayout>
+
+<style>
+  /* Additional claymorphism styling for the admin dashboard */
+  .admin-card {
+    @apply bg-white/80 backdrop-blur-sm border border-white/20 shadow-lg;
+    border-radius: 16px;
+    transition: all 0.2s ease-out;
+  }
+
+  .admin-card:hover {
+    @apply shadow-xl;
+    transform: translateY(-2px);
+  }
+
+  .admin-button {
+    @apply transition-all duration-200 ease-out;
+    border-radius: 12px;
+  }
+
+  .admin-button:hover {
+    @apply transform translate-y-[-1px] shadow-md;
+  }
+
+  /* Coffee color palette */
+  .text-coffee-900 { color: hsl(25, 45%, 20%); }
+  .text-coffee-600 { color: hsl(25, 35%, 35%); }
+  .text-coffee-500 { color: hsl(25, 30%, 45%); }
+  .bg-coffee-25 { background-color: hsl(30, 25%, 98%); }
+  .bg-coffee-50 { background-color: hsl(30, 20%, 95%); }
+  .border-coffee-100 { border-color: hsl(30, 18%, 88%); }
+  .border-coffee-200 { border-color: hsl(30, 16%, 82%); }
+</style>

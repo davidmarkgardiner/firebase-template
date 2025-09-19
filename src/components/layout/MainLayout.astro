@@ -1,0 +1,22 @@
+---
+export interface Props {
+  title: string
+  description?: string
+}
+
+const { title, description = 'Honduras Mountain Coffee - Premium single-origin coffees from the highlands of Honduras' } = Astro.props
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

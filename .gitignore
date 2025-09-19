@@ -1,0 +1,104 @@
+# Build output
+dist/
+.output/
+.vercel/
+.netlify/
+
+# Generated types and cache
+.astro/
+.next/
+.nuxt/
+
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Environment variables (keep .env.sample)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.production
+
+# Testing
+coverage/
+.nyc_output
+test-results/
+playwright-report/
+playwright/.cache/
+
+# Editor directories and files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+.temp/
+.tmp/
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# Supabase
+.supabase/
+
+# Stripe CLI
+.stripe/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+.env.sample
+.env.sample
+.mcp.json
+
+logs
+*.log
+dev-debug.log
+# Dependency directories
+# Environment variables
+.idea
+.vscode
+# OS specific
+
+cmd.sh
+.env.sample
+.mcp.json
+
+# Task files
+# tasks.json
+# tasks/ 

@@ -1,0 +1,10 @@
+ Setup Stripe Webhook (5 minutes):
+    - Go to Stripe Dashboard → Webhooks
+    - Add endpoint: https://yourdomain.com/api/stripe/webhooks
+    - Copy webhook secret to .env.local
+  2. Test Payment Flow:
+    - Use Stripe test cards: 4242 4242 4242 4242
+    - Test both one-time and subscription purchases
+  3. Deploy to Production:
+    - Push to Vercel with environment variables
+    - Update webhook URL to production domain

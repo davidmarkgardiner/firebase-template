@@ -1,0 +1,305 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Honduras Coffee Claymorphism Theme - Enhanced with HSL fallbacks */
+    --background: oklch(0.9383 0.0042 236.4993); /* Warm cream */
+    --foreground: oklch(0.3211 0 0); /* Rich coffee brown */
+    --card: oklch(1.0000 0 0); /* Soft clay */
+    --card-foreground: oklch(0.3211 0 0);
+    --popover: oklch(1.0000 0 0);
+    --popover-foreground: oklch(0.3211 0 0);
+
+    /* Coffee-inspired primary colors */
+    --primary: oklch(0.6397 0.1720 36.4421); /* Deep coffee brown */
+    --primary-foreground: oklch(1.0000 0 0);
+    --secondary: oklch(0.9670 0.0029 264.5419); /* Light coffee cream */
+    --secondary-foreground: oklch(0.4461 0.0263 256.8018);
+
+    /* Muted tones for subtle elements */
+    --muted: oklch(0.9846 0.0017 247.8389);
+    --muted-foreground: oklch(0.5510 0.0234 264.3637);
+    --accent: oklch(0.9119 0.0222 243.8174); /* Warm accent */
+    --accent-foreground: oklch(0.3791 0.1378 265.5222);
+
+    /* System colors */
+    --destructive: oklch(0.6368 0.2078 25.3313);
+    --destructive-foreground: oklch(1.0000 0 0);
+    --border: oklch(0.9022 0.0052 247.8822);
+    --input: oklch(0.9700 0.0029 264.5420);
+    --ring: oklch(0.6397 0.1720 36.4421);
+
+    /* Honduras-inspired chart colors */
+    --chart-1: oklch(0.7156 0.0605 248.6845); /* Coffee brown */
+    --chart-2: oklch(0.7875 0.0917 35.9616); /* Mountain green */
+    --chart-3: oklch(0.5778 0.0759 254.1573); /* Caramel */
+    --chart-4: oklch(0.5016 0.0849 259.4902); /* Sky blue */
+    --chart-5: oklch(0.4241 0.0952 264.0306); /* Warm orange */
+
+    --radius: 0.75rem; /* Softer, more organic radius */
+
+    /* Sidebar colors */
+    --sidebar: oklch(0.9030 0.0046 258.3257);
+    --sidebar-foreground: oklch(0.3211 0 0);
+    --sidebar-primary: oklch(0.6397 0.1720 36.4421);
+    --sidebar-primary-foreground: oklch(1.0000 0 0);
+    --sidebar-accent: oklch(0.9119 0.0222 243.8174);
+    --sidebar-accent-foreground: oklch(0.3791 0.1378 265.5222);
+    --sidebar-border: oklch(0.9276 0.0058 264.5313);
+    --sidebar-ring: oklch(0.6397 0.1720 36.4421);
+
+    /* Typography - Enhanced with complete font stack */
+    --font-sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-serif: "Source Serif 4", "Source Serif Pro", Georgia, Cambria, "Times New Roman", Times, serif;
+    --font-mono: "JetBrains Mono", "SF Mono", Monaco, Inconsolata, "Roboto Mono", "Source Code Pro", monospace;
+    --letter-spacing: 0em;
+    --tracking-normal: 0em;
+
+    /* Claymorphism shadow system - Enhanced */
+    --shadow-color: hsl(0 0% 0%);
+    --shadow-opacity: 0.1;
+    --shadow-blur: 3px;
+    --shadow-spread: 0px;
+    --shadow-offset-x: 0px;
+    --shadow-offset-y: 1px;
+    --spacing: 0.25rem;
+
+    /* Enhanced shadow variations for claymorphism */
+    --shadow-2xs: 0px 1px 3px 0px hsl(0 0% 0% / 0.05);
+    --shadow-xs: 0px 1px 3px 0px hsl(0 0% 0% / 0.05);
+    --shadow-sm: 0px 1px 3px 0px hsl(0 0% 0% / 0.10), 0px 1px 2px -1px hsl(0 0% 0% / 0.10);
+    --shadow: 0px 1px 3px 0px hsl(0 0% 0% / 0.10), 0px 1px 2px -1px hsl(0 0% 0% / 0.10);
+    --shadow-md: 0px 1px 3px 0px hsl(0 0% 0% / 0.10), 0px 2px 4px -1px hsl(0 0% 0% / 0.10);
+    --shadow-lg: 0px 1px 3px 0px hsl(0 0% 0% / 0.10), 0px 4px 6px -1px hsl(0 0% 0% / 0.10);
+    --shadow-xl: 0px 1px 3px 0px hsl(0 0% 0% / 0.10), 0px 8px 10px -1px hsl(0 0% 0% / 0.10);
+    --shadow-2xl: 0px 1px 3px 0px hsl(0 0% 0% / 0.25);
+
+    /* Coffee-specific shadow effects */
+    --clay-shadow-soft: 0 2px 8px -1px rgba(0, 0, 0, 0.08), 0 4px 16px -4px rgba(0, 0, 0, 0.04);
+    --clay-shadow-medium: 0 4px 12px -2px rgba(0, 0, 0, 0.12), 0 8px 24px -6px rgba(0, 0, 0, 0.06);
+    --clay-shadow-strong: 0 8px 24px -4px rgba(0, 0, 0, 0.16), 0 16px 48px -8px rgba(0, 0, 0, 0.08);
+  }
+
+  .dark {
+    --background: oklch(0.2598 0.0306 262.6666); /* Deep coffee */
+    --foreground: oklch(0.9219 0 0);
+    --card: oklch(0.3106 0.0301 268.6365);
+    --card-foreground: oklch(0.9219 0 0);
+    --popover: oklch(0.2900 0.0249 268.3986);
+    --popover-foreground: oklch(0.9219 0 0);
+    --primary: oklch(0.6397 0.1720 36.4421); /* Light cream */
+    --primary-foreground: oklch(1.0000 0 0);
+    --secondary: oklch(0.3095 0.0266 266.7132);
+    --secondary-foreground: oklch(0.9219 0 0);
+    --muted: oklch(0.3095 0.0266 266.7132);
+    --muted-foreground: oklch(0.7155 0 0);
+    --accent: oklch(0.3380 0.0589 267.5867);
+    --accent-foreground: oklch(0.8823 0.0571 254.1284);
+    --destructive: oklch(0.6368 0.2078 25.3313);
+    --destructive-foreground: oklch(1.0000 0 0);
+    --border: oklch(0.3843 0.0301 269.7337);
+    --input: oklch(0.3843 0.0301 269.7337);
+    --ring: oklch(0.6397 0.1720 36.4421);
+    --chart-1: oklch(0.7156 0.0605 248.6845);
+    --chart-2: oklch(0.7693 0.0876 34.1875);
+    --chart-3: oklch(0.5778 0.0759 254.1573);
+    --chart-4: oklch(0.5016 0.0849 259.4902);
+    --chart-5: oklch(0.4241 0.0952 264.0306);
+    --radius: 0.75rem;
+    --sidebar: oklch(0.3100 0.0283 267.7408);
+    --sidebar-foreground: oklch(0.9219 0 0);
+    --sidebar-primary: oklch(0.6397 0.1720 36.4421);
+    --sidebar-primary-foreground: oklch(1.0000 0 0);
+    --sidebar-accent: oklch(0.3380 0.0589 267.5867);
+    --sidebar-accent-foreground: oklch(0.8823 0.0571 254.1284);
+    --sidebar-border: oklch(0.3843 0.0301 269.7337);
+    --sidebar-ring: oklch(0.6397 0.1720 36.4421);
+    --font-sans: Inter, sans-serif;
+    --font-serif: Source Serif 4, serif;
+    --font-mono: JetBrains Mono, monospace;
+    --shadow-color: hsl(0 0% 0%);
+    --shadow-opacity: 0.1;
+    --shadow-blur: 3px;
+    --shadow-spread: 0px;
+    --shadow-offset-x: 0px;
+    --shadow-offset-y: 1px;
+    --letter-spacing: 0em;
+    --spacing: 0.25rem;
+    --shadow-2xs: 0px 1px 3px 0px hsl(0 0% 0% / 0.05);
+    --shadow-xs: 0px 1px 3px 0px hsl(0 0% 0% / 0.05);
+    --shadow-sm: 0px 1px 3px 0px hsl(0 0% 0% / 0.10), 0px 1px 2px -1px hsl(0 0% 0% / 0.10);
+    --shadow: 0px 1px 3px 0px hsl(0 0% 0% / 0.10), 0px 1px 2px -1px hsl(0 0% 0% / 0.10);
+    --shadow-md: 0px 1px 3px 0px hsl(0 0% 0% / 0.10), 0px 2px 4px -1px hsl(0 0% 0% / 0.10);
+    --shadow-lg: 0px 1px 3px 0px hsl(0 0% 0% / 0.10), 0px 4px 6px -1px hsl(0 0% 0% / 0.10);
+    --shadow-xl: 0px 1px 3px 0px hsl(0 0% 0% / 0.10), 0px 8px 10px -1px hsl(0 0% 0% / 0.10);
+    --shadow-2xl: 0px 1px 3px 0px hsl(0 0% 0% / 0.25);
+  }
+  .theme {
+    --font-sans: Inter, sans-serif;
+    --font-mono: JetBrains Mono, monospace;
+    --font-serif: Source Serif 4, serif;
+    --radius: 0.75rem;
+    --tracking-tighter: calc(var(--tracking-normal) - 0.05em);
+    --tracking-tight: calc(var(--tracking-normal) - 0.025em);
+    --tracking-wide: calc(var(--tracking-normal) + 0.025em);
+    --tracking-wider: calc(var(--tracking-normal) + 0.05em);
+    --tracking-widest: calc(var(--tracking-normal) + 0.1em);
+  }
+  body {
+    letter-spacing: var(--tracking-normal);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+}
+
+/* Enhanced Claymorphism Effects for Honduras Coffee */
+@layer components {
+  .clay-card {
+    @apply bg-card/85 backdrop-blur-sm border border-border/40 rounded-2xl transition-all duration-300;
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.12),
+      var(--clay-shadow-soft);
+  }
+
+  .clay-card:hover {
+    @apply scale-[1.01];
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.15),
+      var(--clay-shadow-medium);
+  }
+
+  .clay-shadow-soft {
+    box-shadow: var(--clay-shadow-soft);
+  }
+
+  .clay-shadow-medium {
+    box-shadow: var(--clay-shadow-medium);
+  }
+
+  .clay-shadow-strong {
+    box-shadow: var(--clay-shadow-strong);
+  }
+
+  .clay-button {
+    @apply relative overflow-hidden rounded-xl transition-all duration-300 px-6 py-3;
+    background: linear-gradient(135deg,
+      hsl(var(--primary)) 0%,
+      hsl(var(--primary)/0.92) 50%,
+      hsl(var(--primary)) 100%);
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.12),
+      var(--clay-shadow-soft);
+  }
+
+  .clay-button:hover {
+    @apply scale-[1.02] brightness-105;
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.18),
+      var(--clay-shadow-medium);
+  }
+
+  .clay-button:active {
+    @apply scale-[0.98];
+    box-shadow:
+      inset 0 2px 4px 0 rgba(0, 0, 0, 0.08),
+      var(--shadow-sm);
+  }
+
+  .clay-input {
+    @apply bg-input/70 backdrop-blur-sm border border-border/50 rounded-xl px-4 py-3 transition-all duration-200;
+    box-shadow:
+      inset 0 2px 4px 0 rgba(0, 0, 0, 0.04),
+      var(--shadow-xs);
+  }
+
+  .clay-input:focus {
+    @apply ring-2 ring-ring/25 border-ring/50 bg-input/80;
+    box-shadow:
+      inset 0 2px 4px 0 rgba(0, 0, 0, 0.04),
+      0 0 0 3px rgba(var(--ring), 0.12),
+      var(--shadow-sm);
+  }
+
+  .clay-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium backdrop-blur-sm;
+    background: linear-gradient(135deg,
+      hsl(var(--accent)) 0%,
+      hsl(var(--accent)/0.9) 100%);
+    box-shadow: var(--shadow-xs);
+  }
+
+  .glass-effect {
+    @apply backdrop-blur-md border border-white/15;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: var(--clay-shadow-soft);
+  }
+
+  .coffee-gradient {
+    background: linear-gradient(135deg,
+      #8B4513 0%,    /* Saddle brown */
+      #A0522D 20%,   /* Sienna */
+      #CD853F 40%,   /* Peru */
+      #D2691E 60%,   /* Chocolate */
+      #8B4513 100%   /* Back to saddle brown */
+    );
+  }
+
+  .mountain-gradient {
+    background: linear-gradient(135deg,
+      #2F4F2F 0%,    /* Dark slate gray */
+      #556B2F 25%,   /* Dark olive green */
+      #6B8E23 50%,   /* Olive drab */
+      #228B22 75%,   /* Forest green */
+      #2F4F2F 100%   /* Back to dark slate gray */
+    );
+  }
+
+  .hero-gradient {
+    background: linear-gradient(135deg,
+      hsl(var(--background)) 0%,
+      hsl(var(--muted)/0.8) 25%,
+      hsl(var(--accent)/0.6) 50%,
+      hsl(var(--muted)/0.8) 75%,
+      hsl(var(--background)) 100%
+    );
+  }
+
+  .premium-gradient {
+    background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.15) 0%,
+      rgba(255, 255, 255, 0.05) 50%,
+      rgba(255, 255, 255, 0.15) 100%
+    );
+  }
+}
+
+/* Smooth animations */
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes glow {
+    from { box-shadow: 0 0 20px rgba(var(--primary), 0.3); }
+    to { box-shadow: 0 0 30px rgba(var(--primary), 0.5); }
+  }
+}

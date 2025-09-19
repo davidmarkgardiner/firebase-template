@@ -1,0 +1,19 @@
+---
+import MainLayout from '@/components/layout/MainLayout.astro'
+import CategoryPage from '@/components/shop/CategoryPage'
+
+export const prerender = true
+---
+
+<MainLayout
+  title="Seasonal Coffee Collection - Honduras Coffee Co."
+  description="Limited-time seasonal coffee blends and special editions. Unique flavors available for a limited time only."
+>
+  <CategoryPage
+    client:load
+    category="seasonal"
+    categoryTitle="Seasonal Collection"
+    categoryDescription="Our Seasonal Collection features limited-time blends and special editions that celebrate the unique characteristics of each harvest season and special occasions."
+    categoryBadge="Limited Edition"
+  />
+</MainLayout>

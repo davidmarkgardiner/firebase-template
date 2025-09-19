@@ -1,0 +1,10 @@
+[
+  {
+    "session_id": "4fe89519-560f-43da-b0c0-db7094d422ef",
+    "transcript_path": "/Users/davidgardiner/.claude/projects/-Users-davidgardiner-Desktop-repo-app-template/4fe89519-560f-43da-b0c0-db7094d422ef.jsonl",
+    "cwd": "/Users/davidgardiner/Desktop/repo/app-template",
+    "hook_event_name": "PreCompact",
+    "trigger": "auto",
+    "custom_instructions": null
+  }
+]
