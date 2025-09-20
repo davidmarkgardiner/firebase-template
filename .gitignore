@@ -1,18 +1,28 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
 # Build output
+.next/
 dist/
 .output/
 .vercel/
 .netlify/
 
-# Generated types and cache
-.astro/
-.next/
-.nuxt/
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.production
 
-# Dependencies
-node_modules/
-.pnp
-.pnp.js
+# Firebase
+.firebase/
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
 
 # Logs
 npm-debug.log*
@@ -20,14 +30,7 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
-
-# Environment variables (keep .env.sample)
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-.env.production
+*.log
 
 # Testing
 coverage/
@@ -72,33 +75,6 @@ pids
 # Optional REPL history
 .node_repl_history
 
-# Supabase
-.supabase/
-
-# Stripe CLI
-.stripe/
-
-# Database
-*.db
-*.sqlite
-*.sqlite3
-.env.sample
-.env.sample
-.mcp.json
-
-logs
-*.log
-dev-debug.log
-# Dependency directories
-# Environment variables
-.idea
-.vscode
-# OS specific
-
-cmd.sh
-.env.sample
-.mcp.json
-
-# Task files
-# tasks.json
-# tasks/ 
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts 
